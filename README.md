@@ -109,6 +109,220 @@ dates = str(dates)
     historical_df= pd.DataFrame(historical['rates'])
     historical_df = historical_df.drop('rate_for_amount')
     print(historical_df)
+    
+      # get the Historical Currency Rates specifying the year - month - day
+    conn.request("GET", "/currency/historical/2019-12-10", headers=headers)
+    
+    resp = conn.getresponse()
+    data = resp.read().decode("utf-8")
+    historical2019 = json.loads(data)
+    historical2019
+    
+    #2018 data
+    # get the Historical Currency Rates specifying the year - month - day
+    conn.request("GET", "/currency/historical/2018-12-10", headers=headers)
+    
+    resp = conn.getresponse()
+    data = resp.read().decode("utf-8")
+    historical2018 = json.loads(data)
+    historical2018
+    
+    #2017 data
+    # get the Historical Currency Rates specifying the year - month - day
+    conn.request("GET", "/currency/historical/2017-12-10", headers=headers)
+    
+    resp = conn.getresponse()
+    data = resp.read().decode("utf-8")
+    historical2017 = json.loads(data)
+    
+    #2016
+    # get the Historical Currency Rates specifying the year - month - day
+    conn.request("GET", "/currency/historical/2016-12-10", headers=headers)
+    
+    resp = conn.getresponse()
+    data = resp.read().decode("utf-8")
+    historical2016 = json.loads(data)
+    
+    #2015
+    # get the Historical Currency Rates specifying the year - month - day
+    conn.request("GET", "/currency/historical/2015-12-10", headers=headers)
+    
+    resp = conn.getresponse()
+    data = resp.read().decode("utf-8")
+    historical2015 = json.loads(data)
+    
+    #2014
+    # get the Historical Currency Rates specifying the year - month - day
+    conn.request("GET", "/currency/historical/2014-12-10", headers=headers)
+    
+    resp = conn.getresponse()
+    data = resp.read().decode("utf-8")
+    historical2014 = json.loads(data)
+    
+    #2013
+    # get the Historical Currency Rates specifying the year - month - day
+    conn.request("GET", "/currency/historical/2013-12-10", headers=headers)
+    
+    resp = conn.getresponse()
+    data = resp.read().decode("utf-8")
+    historical2013 = json.loads(data)
+    
+    #2012
+    # get the Historical Currency Rates specifying the year - month - day
+    conn.request("GET", "/currency/historical/2012-12-10", headers=headers)
+    
+    resp = conn.getresponse()
+    data = resp.read().decode("utf-8")
+    historical2012 = json.loads(data)
+    
+    #2011
+    # get the Historical Currency Rates specifying the year - month - day
+    conn.request("GET", "/currency/historical/2011-12-10", headers=headers)
+    
+    resp = conn.getresponse()
+    data = resp.read().decode("utf-8")
+    historical2011 = json.loads(data)
+    
+    #2010
+    # get the Historical Currency Rates specifying the year - month - day
+    conn.request("GET", "/currency/historical/2010-12-10", headers=headers)
+    
+    resp = conn.getresponse()
+    data = resp.read().decode("utf-8")
+    historical2010 = json.loads(data)
+    
+    # panda dataframe convert rate 
+    today = pd.DataFrame(convert['rates'])
+    today = today.T
+    today = today.rename(columns={"rate": "present Rate"})
+    today[['currency_name','present Rate']]
+    
+    # dataframe conversion of respective years -2019
+    
+    hist2019= pd.DataFrame(historical2019['rates'])
+    hist2019= hist2019.T
+    hist2019 = hist2019.rename(columns={"rate": "hist 2019"})
+    hist2019_1=hist2019.drop(['currency_name','rate_for_amount'],axis=1)
+    
+    # dataframe conversion of respective years -2018
+    
+    hist2018= pd.DataFrame(historical2018['rates'])
+    hist2018= hist2018.T
+    hist2018 = hist2018.rename(columns={"rate": "hist 2018"})
+    hist2018_1=hist2018.drop(['currency_name','rate_for_amount'],axis=1)
+    
+    # dataframe conversion of respective years -2017
+    
+    hist2017= pd.DataFrame(historical2017['rates'])
+    hist2017= hist2017.T
+    hist2017 = hist2017.rename(columns={"rate": "hist 2017"})
+    hist2017_1=hist2017.drop(['currency_name','rate_for_amount'],axis=1)
+    
+    # dataframe conversion of respective years -2016
+    
+    hist2016= pd.DataFrame(historical2016['rates'])
+    hist2016= hist2016.T
+    hist2016 = hist2016.rename(columns={"rate": "hist 2016"})
+    hist2016_1=hist2016.drop(['currency_name','rate_for_amount'],axis=1)
+    
+    # dataframe conversion of respective years -2015
+    
+    hist2015= pd.DataFrame(historical2015['rates'])
+    hist2015= hist2015.T
+    hist2015 = hist2015.rename(columns={"rate": "hist 2015"})
+    hist2015_1=hist2015.drop(['currency_name','rate_for_amount'],axis=1)
+    
+    # dataframe conversion of respective years -2014
+    
+    hist2014= pd.DataFrame(historical2014['rates'])
+    hist2014= hist2014.T
+    hist2014 = hist2014.rename(columns={"rate": "hist 2014"})
+    hist2014_1=hist2014.drop(['currency_name','rate_for_amount'],axis=1)
+    
+    # dataframe conversion of respective years -2013
+    
+    hist2013= pd.DataFrame(historical2013['rates'])
+    hist2013= hist2013.T
+    hist2013 = hist2013.rename(columns={"rate": "hist 2013"})
+    hist2013_1=hist2013.drop(['currency_name','rate_for_amount'],axis=1)
+    
+    # dataframe conversion of respective years -2012
+    
+    hist2012= pd.DataFrame(historical2012['rates'])
+    hist2012= hist2012.T
+    hist2012 = hist2012.rename(columns={"rate": "hist 2012"})
+    hist2012_1=hist2012.drop(['currency_name','rate_for_amount'],axis=1)
+    
+    # dataframe conversion of respective years -2011
+    
+    hist2011= pd.DataFrame(historical2011['rates'])
+    hist2011= hist2011.T
+    hist2011 = hist2011.rename(columns={"rate": "hist 2011"})
+    hist2011_1=hist2011.drop(['currency_name','rate_for_amount'],axis=1)
+    
+    # dataframe conversion of respective years -2010
+    
+    hist2010= pd.DataFrame(historical2010['rates'])
+    hist2010= hist2010.T
+    hist2010 = hist2010.rename(columns={"rate": "hist 2010"})
+    hist2010_1=hist2010.drop(['currency_name','rate_for_amount'],axis=1)
+    
+    result = pd.concat([today,hist2019_1,hist2018_1,hist2017_1,hist2016_1,hist2015_1,hist2014_1,hist2013_1,hist2012_1,hist2011_1,hist2010_1], axis=1, sort=False)
+    final= result.drop(['rate_for_amount'],axis=1)
+    final
+    
+    #converting all values of the currency rate from string to float
+    # Add a new column named '' 
+    # result1['Difference'] = result1['rate']- result1['historical_rate']
+    # print(result1) 
+    # result1
+    
+    final['present Rate'] = final['present Rate'].astype(float)
+    final[['hist 2019','hist 2018','hist 2017','hist 2016','hist 2015','hist 2014','hist 2013','hist 2012','hist 2011','hist 2010']] = final[['hist 2019','hist 2018','hist 2017','hist 2016','hist 2015','hist 2014','hist 2013','hist 2012','hist 2011','hist 2010']].astype(float)
+
+    
+    INR =[82.873,78.561,82.7284,75.6775,71.341,73.0416,76.9233, 83.9149, 70.475,69.697,59.627]
+   
+    x = np.array(['2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020']).astype(float)
+    y = np.array([59.627,69.697,70.475,83.9149,76.9233,73.0416,71.341,75.6775,82.7284,78.561,82.873])
+    m, b = np.polyfit(x, y, 1)
+    plt.plot(x, y, 'b')
+    plt.plot(x, m*x + b)
+    plt.plot(x, y, '-o',color='orange')
+    plt.title('INR Rate 2010-2020')
+    plt.xlabel('Year')
+    plt.ylabel('Exchange Rate'); 
+    
+    fig = plt.figure()
+    ax = fig.add_axes([0,0,1,1])
+    ZAR = [19.7624,16.4121,16.3463,16.0391,14.545,16.7143,14.243,14.1808,11.2365,10.9853,9.0684]
+    def Reverse(ZAR): 
+        INR.reverse() 
+        return ZAR
+    ZAR1 = Reverse(ZAR)
+    Year = ['2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020']
+    plt.plot(Year, ZAR1, '-o',color='red')
+    plt.title('South African Rand_ZAR Rate 2010-2020')
+    plt.xlabel('Year')
+    plt.ylabel('Exchange Rate');
+    ax.bar(Year, ZAR)
+    
+    fig = plt.figure()
+    ax = fig.add_axes([0,0,1,1])
+    ARS = [70.7778, 66.243, 42.6901, 20.3201, 16.9606, 10.6917, 10.6041,
+           8.5968, 6.2644, 5.7062, 5.2874]
+    def Reverse(ARS): 
+        ARS.reverse() 
+        return ARS
+    ARS1 = Reverse(ARS)
+    Year = ['2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020']
+    plt.plot(Year, ARS1, '-o',color='red')
+    plt.title('Argentina Peso Rate 2010-2020')
+    plt.xlabel('Year')
+    plt.ylabel('Exchange Rate');
+    ax.bar(Year, ARS1)
+ 
+ 
 ```
 With the obtained data from the desired dates we can plot different types 
 
@@ -121,6 +335,7 @@ With the obtained data from the desired dates we can plot different types
 ![Image of Plot](imagesgraph/IMG4.png)
 
 ![Image of Plot](imagesgraph/IMG5.png)
+
 ---
 
 ## How to Run the Code
