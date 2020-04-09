@@ -33,7 +33,7 @@ The current link has information about the API key and webpage host. It also exp
 - Currency exchange rates are obtained from the European Central Bank: https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html 
 The values that are given are also listed in the previous link.
 
-- Programming for Analytics Video Lectures: Module 5 Online Data
+- Programming for Analytics Video Lectures: Module 2 : Data Visualization and Module 5 : Online Data
 
 ---
 
@@ -110,7 +110,7 @@ dates = str(dates)
     historical_df = historical_df.drop('rate_for_amount')
     print(historical_df)
 ```
-With the obtained data from the disred dates we can plot different types 
+With the obtained data from the desired dates we can plot different types 
 
 ![Image of Plot](imagesgraph/img1.png)
 
@@ -147,7 +147,7 @@ A currency converter is considered a useful financial tool because it give us up
 
 A fine example can be related to the Coronavirus and how it is affecting the financial market nowadays. On December 2019 on a specific date, the euro was equal to 1.1070 USD, but on March 12th 2020, the euro was equal to 1.1240 USD. This means the USD is getting a higher demand because investors dont want to but euros (currently a terrible time to invest in Europe)   
 
-There are many more interpretations we can get by comparing thses two values.
+There are many more interpretations we can get by comparing the different values.
 
 
 
