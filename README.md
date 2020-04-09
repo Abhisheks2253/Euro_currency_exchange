@@ -118,9 +118,9 @@ With the obtained data from the desired dates we can plot different types
 
 ![Image of Plot](imagesgraph/img3.png)
 
-![Image of Plot](imagesgraph/img4.png)
+![Image of Plot](imagesgraph/IMG4.png)
 
-![Image of Plot](imagesgraph/img5.png)
+![Image of Plot](imagesgraph/IMG5.png)
 ---
 
 ## How to Run the Code
