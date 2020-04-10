@@ -1,7 +1,7 @@
 #Currency converter for Euro
 def desiredDate(dates): #entered value must be a string
 # Input Rapidapikey provided by the rapidapi webpage
-    RAPIDAPIKEY = 'd88ac81114msh89e702e586cd793p16570djsn90c636b78795'  
+    RAPIDAPIKEY = 'InsertyourAPIkeyhere'  
     dates = str(dates)
     # import
     import http.client  
@@ -12,9 +12,9 @@ def desiredDate(dates): #entered value must be a string
     import matplotlib.pyplot as plt
     
     # Establish the connection to the particular API 
-    conn = http.client.HTTPSConnection("currency-converter5.p.rapidapi.com")
+    conn = http.client.HTTPSConnection("apihostadress")
     
-    headers = {'x-rapidapi-host': "currency-converter5.p.rapidapi.com",'x-rapidapi-key': RAPIDAPIKEY}
+    headers = {'x-rapidapi-host': "apihostadress",'x-rapidapi-key': RAPIDAPIKEY}
     
     # First we will find the List of available currencies:
     # The select API have been provided free of cost and is available for everyone
