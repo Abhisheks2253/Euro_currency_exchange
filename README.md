@@ -38,15 +38,31 @@ The values that are given are also listed in the previous link.
 ---
 
 ## Explanation of the Code
-
-### Definition Function .py code 
 The code, `euro_currency_converter`, begins by defining the variable to select date:
+
+### Euro currency converter function 
+
+The first part is focused on a user friendly code as it give you the following outputs:
+- A list of all available currencies and their applied code
+- The currency exchange value from today's date
+- The currency exchange value from the input date
+
 ```
+#Currency converter for Euro
+# function input can be any date you want from January 01, 2010
+# dates variable must be in the form of a string 'YYYY-MM-DD', this means in numeric YEAR-MONTH-DAY within a string type '' 
+# example : '2020-01-11'
+# note: if you input a date higher than the present date, it will give and error output
+
 def desiredDate(dates): 
 
-RAPIDAPIKEY = 'd88ac81114msh89e702e586cd793p16570djsn90c636b78795'  
-dates = str(dates)
+    # Input Rapidapikey provided by the rapidapi webpage
+    RAPIDAPIKEY = 'InsertyourAPIkeyhere'
+
+    # Defines the function
+    dates = str(dates)
     
+    # import
     import http.client  
     import json 
     import pandas as pd
@@ -54,60 +70,61 @@ dates = str(dates)
     from datetime import date
     import matplotlib.pyplot as plt
     
- # Establish the connection to the particular API 
+    # Establish the connection to the particular API 
     conn = http.client.HTTPSConnection("currency-converter5.p.rapidapi.com")
-
+    
     headers = {'x-rapidapi-host': "currency-converter5.p.rapidapi.com",'x-rapidapi-key': RAPIDAPIKEY}
-
-# First we will find the List of available currencies:
-# The select API have been provided free of cost and is available for everyone
+    
+    # First we will find the List of available currencies:
+    # The select API have been provided free of cost and is available for everyone
     conn.request("GET", "/currency/list", headers=headers)
-
+    
     resp  = conn.getresponse()
     data = resp.read().decode("utf-8") 
     currency = json.loads(data)
-
-# Next, we will check the currency exchange rate based on 1 euro
-#This means that we will obtain all the currencies values equal to 1 euro 
+    
+    
+    # Next, we will check the currency exchange rate based on 1 euro
+    #This means that we will obtain all the currencies values equal to 1 euro 
     conn.request("GET", "/currency/convert", headers=headers)
     resp = conn.getresponse()
     data2 = resp.read().decode("utf-8")
     convert = json.loads(data2)
-
-#change the data to a dataframe  
+    
+    #change the data to a dataframe  
     currency_df= pd.DataFrame(currency)
     print(currency_df)
-
+    
     print("Base amount Value: ",convert['amount'])
-
+    
     print("Currency Base Name: ",convert['base_currency_name'])
-
+    
     print("Currency Base Code: ",convert['base_currency_code'])
-
-# we put the current date to have a better visualization of the output
+    
+    # we put the current date to have a better visualization of the output
     today = date.today()
     print("Today's date:", today)
-
+    
     print('\n')
     print('Today, the exchange currency values are:\n')
-
-#change the data to a dataframe
+    
+    #change the data to a dataframe
     convert_df= pd.DataFrame(convert['rates'])
     convert_df = convert_df.drop('rate_for_amount')
     print(convert_df)
-
+    
     print('\n')
     print(dates, "The requested date exchange currency values are:\n")
-
-# prepare the dynamic code so we may choose which date we want to see the currency
+    
+    # prepare the dynamic code so we may choose which date we want to see the currency
     Requesteddate ="/currency/historical/" + dates + ""
-
+    
     conn.request("GET", Requesteddate, headers=headers)
     resp = conn.getresponse()
     data = resp.read().decode("utf-8")
     historical = json.loads(data)
-    
-#change the data to a dataframe
+        
+    #change the data to a dataframe
     historical_df= pd.DataFrame(historical['rates'])
     historical_df = historical_df.drop('rate_for_amount')
     print(historical_df)
@@ -116,9 +133,11 @@ dates = str(dates)
  
  ### Analyze the data with multiple graphs
  
- ```
+ The second part of the code is related to the graph building and development.
  
-      # get the Historical Currency Rates specifying the year - month - day
+ ```
+
+        # get the Historical Currency Rates specifying the year - month - day
     conn.request("GET", "/currency/historical/2019-12-10", headers=headers)
     
     resp = conn.getresponse()
@@ -329,7 +348,83 @@ dates = str(dates)
     plt.xlabel('Year')
     plt.ylabel('Exchange Rate');
     ax.bar(Year, ARS1)
- 
+    
+    conn.request("GET", "/currency/historical/2020-01-09", headers=headers)
+    resp = conn.getresponse()
+    data = resp.read().decode("utf-8")
+    jan = json.loads(data)
+    
+    conn.request("GET", "/currency/historical/2020-02-09", headers=headers)
+    resp = conn.getresponse()
+    data = resp.read().decode("utf-8")
+    feb = json.loads(data)
+    
+    conn.request("GET", "/currency/historical/2020-03-09", headers=headers)
+    resp = conn.getresponse()
+    data = resp.read().decode("utf-8")
+    mar = json.loads(data)
+    
+    conn.request("GET", "/currency/historical/2020-04-09", headers=headers)
+    resp = conn.getresponse()
+    data = resp.read().decode("utf-8")
+    apr = json.loads(data)
+    
+    df1 = pd.DataFrame(jan['rates'])
+    jan2020 = df1.T
+    
+    # jan2020
+    
+    df2 = pd.DataFrame(feb['rates'])
+    feb2020 = df2.T
+    
+    # feb2020
+    
+    df3 = pd.DataFrame(mar['rates'])
+    mar2020 = df3.T
+    
+    # mar2020
+    
+    df4 = pd.DataFrame(apr['rates'])
+    apr2020 = df4.T
+    
+    # apr2020
+    
+    jan2020['rate'] = pd.to_numeric(jan2020['rate'])
+    
+    # jan2020 = jan2020.loc[jan2020['rate'] <= 10]
+    
+    jan2020.rename(columns = {'rate':'jan_rate'}, inplace = True)
+    
+    jan2020 = jan2020.iloc[:, :-1]
+    
+    feb2020['rate'] = pd.to_numeric(feb2020['rate'])
+    
+    feb2020.rename(columns = {'rate':'feb_rate'}, inplace = True)
+    
+    # feb2020 = feb2020.loc[feb2020['rate'] <= 10 ]
+    
+    mar2020['rate'] = pd.to_numeric(mar2020['rate'])
+    
+    mar2020.rename(columns = {'rate':'mar_rate'}, inplace = True)
+    
+    # mar2020 = mar2020.loc[mar2020['rate'] <= 10]
+    
+    apr2020['rate'] = pd.to_numeric(apr2020['rate'])
+    
+    apr2020.rename(columns = {'rate':'apr_rate'}, inplace = True)
+    
+    # apr2020 = apr2020.loc[apr2020['rate'] <= 10]
+    
+    xx = jan2020.join(feb2020['feb_rate'])
+    
+    yy = xx.join(mar2020['mar_rate'])
+    
+    myData = yy.join(apr2020['apr_rate'])
+    
+    myData = myData.loc[myData['apr_rate'] <= 100]
+    
+    myData.plot.barh(figsize = (10,50), edgecolor = 'black')
+
  
 ```
 With the obtained data from the desired dates we can plot different types 
@@ -364,6 +459,12 @@ Before starting we recommend downloading a python IDE or the anaconda package (h
 4. Type import euro_currency_converter as var
 
 5. Type var.desiredDate(dates) -> the dates value is represented by the string of the date (i the form '')
+
+## Update log
+V1 uploaded on 04/09/2020
+
+V1_01 uploadad on 04/10/20:
+Quick changes on script file regarding the function description.
 
 ---
 
