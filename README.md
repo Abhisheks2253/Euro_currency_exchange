@@ -71,9 +71,9 @@ def desiredDate(dates):
     import matplotlib.pyplot as plt
     
     # Establish the connection to the particular API 
-    conn = http.client.HTTPSConnection("currency-converter5.p.rapidapi.com")
+    conn = http.client.HTTPSConnection("apihostadress")
     
-    headers = {'x-rapidapi-host': "currency-converter5.p.rapidapi.com",'x-rapidapi-key': RAPIDAPIKEY}
+    headers = {'x-rapidapi-host': "apihostadress",'x-rapidapi-key': RAPIDAPIKEY}
     
     # First we will find the List of available currencies:
     # The select API have been provided free of cost and is available for everyone
@@ -464,7 +464,7 @@ Before starting we recommend downloading a python IDE or the anaconda package (h
 V1 uploaded on 04/09/2020
 
 V1_01 uploadad on 04/10/20:
-Quick changes on script file regarding the function description.
+Quick changes on script file regarding the function description, The api key and webpage host has been removed from the code as well.
 
 ---
 
