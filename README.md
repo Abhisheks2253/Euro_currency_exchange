@@ -449,7 +449,7 @@ Before starting we recommend downloading a python IDE or the anaconda package (h
 
 2. Type 'ipython' , inmmediately the interactive development enviroment of python will be loaded
 
-3. Change directories to where `needs_a_good_name.py` is saved.
+3. Change directories to where `euro_currency_converter` is saved.
 
 3. Type the following commands to select the folder where the files are located:
     import os
