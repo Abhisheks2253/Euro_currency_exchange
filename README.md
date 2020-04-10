@@ -38,6 +38,8 @@ The values that are given are also listed in the previous link.
 ---
 
 ## Explanation of the Code
+
+### Definition Function .py code 
 The code, `euro_currency_converter`, begins by defining the variable to select date:
 ```
 def desiredDate(dates): 
@@ -109,7 +111,13 @@ dates = str(dates)
     historical_df= pd.DataFrame(historical['rates'])
     historical_df = historical_df.drop('rate_for_amount')
     print(historical_df)
-    
+
+```
+ 
+ ### Analyze the data with multiple graphs
+ 
+ ```
+ 
       # get the Historical Currency Rates specifying the year - month - day
     conn.request("GET", "/currency/historical/2019-12-10", headers=headers)
     
