@@ -130,6 +130,10 @@ def desiredDate(dates):
     print(historical_df)
 
 ```
+ The expected output of the data is presented in the following form:
+ 
+ ![Image of Plot](imagesgraph/results.png)
+ 
  
  ### Analyze the data with multiple graphs
  
