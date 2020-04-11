@@ -447,18 +447,18 @@ Before starting we recommend downloading a python IDE or the anaconda package (h
 
 1. Acess to the Anaconda Prompt (Python IDE), you will get the command window 
 
-2. Type 'ipython' , inmmediately the interactive development enviroment of python will be loaded
+2. Type: ipython , inmmediately the interactive development enviroment of python will be loaded
 
 3. Change directories to where `euro_currency_converter_V1_01` is saved.
 
-3. Type the following commands to select the folder where the files are located:
+3. Type: the following commands to select the folder where the files are located:
     import os
     os.chdir("C:/Users/Wilson/Desktop/hw5") -> this is the address for the folder, if you want to know the address right click on the    folder and select properties. The folder address will be essential as it detects the route to import the file
     os.getcwd()
 
-4. Type import euro_currency_converter as var
+4. Type: import euro_currency_converter_V1_01 as var
 
-5. Type var.desiredDate(dates) -> the dates value is represented by the string of the date (i the form '')
+5. Type: var.desiredDate(dates) -> the dates value is represented by the string of the date (i the form '')
 
 ## Update log
 V1 uploaded on 04/09/2020
