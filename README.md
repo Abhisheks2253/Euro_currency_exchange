@@ -132,7 +132,7 @@ def desiredDate(dates):
 ```
  The expected output of the data is presented in the following form:
  
- ![Image of Plot](imagesgraph/results.png)
+ ![Image of Plot](imagesgraph/results.PNG)
  
  
  ### Analyze the data with multiple graphs
