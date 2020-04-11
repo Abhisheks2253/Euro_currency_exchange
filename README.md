@@ -133,7 +133,7 @@ def desiredDate(dates):
  
  ### Analyze the data with multiple graphs
  
- The second part of the code is related to the graph building and development.
+ The second part of the code is a clear example of how can we use the following online data to plot multiple graphs and analyze the results
  
  ```
 
