@@ -1,7 +1,7 @@
 #Currency converter for Euro
 def desiredDate(dates): #entered value must be a string
 # Input Rapidapikey provided by the rapidapi webpage
-    RAPIDAPIKEY = 'InsertyourAPIkeyhere'  
+    RAPIDAPIKEY = str(input("Enter your RAPIDAPIKEY to proceed:"))  
     dates = str(dates)
     # import
     import http.client  
