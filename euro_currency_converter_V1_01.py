@@ -7,7 +7,7 @@
 def desiredDate(dates): 
     
     # Input Rapidapikey provided by the rapidapi webpage
-    RAPIDAPIKEY = 'InsertyourAPIkeyhere'  
+    RAPIDAPIKEY = str(input("Enter your RAPIDAPIKEY to proceed:"))   
     dates = str(dates)
     
     # import
