@@ -57,7 +57,7 @@ The first part is focused on a user friendly code as it give you the following o
 def desiredDate(dates): 
 
     # Input Rapidapikey provided by the rapidapi webpage
-    RAPIDAPIKEY = 'InsertyourAPIkeyhere'
+    RAPIDAPIKEY = str(input("Enter your RAPIDAPIKEY to proceed:")) # This line prompts the user to enter the code and stores that code with the name RAPIDAPIKEY for future usage.
 
     # Defines the function
     dates = str(dates)
