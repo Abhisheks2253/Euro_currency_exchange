@@ -298,6 +298,8 @@ def desiredDate(dates):
     hist2010 = hist2010.rename(columns={"rate": "hist 2010"})
     hist2010_1=hist2010.drop(['currency_name','rate_for_amount'],axis=1)
     
+    #identify all dataframes collected from the 
+    
     result = pd.concat([today,hist2019_1,hist2018_1,hist2017_1,hist2016_1,hist2015_1,hist2014_1,hist2013_1,hist2012_1,hist2011_1,hist2010_1], axis=1, sort=False)
     final= result.drop(['rate_for_amount'],axis=1)
     final
@@ -352,6 +354,8 @@ def desiredDate(dates):
     plt.xlabel('Year')
     plt.ylabel('Exchange Rate');
     ax.bar(Year, ARS1)
+    
+    #collect historical online data respectively, we have to consider that the online data can be collected per day  
     
     conn.request("GET", "/currency/historical/2020-01-09", headers=headers)
     resp = conn.getresponse()
@@ -418,7 +422,9 @@ def desiredDate(dates):
     apr2020.rename(columns = {'rate':'apr_rate'}, inplace = True)
     
     # apr2020 = apr2020.loc[apr2020['rate'] <= 10]
-    
+   
+    # start joining the data frames collected from online data to form a graph
+   
     xx = jan2020.join(feb2020['feb_rate'])
     
     yy = xx.join(mar2020['mar_rate'])
@@ -426,6 +432,8 @@ def desiredDate(dates):
     myData = yy.join(apr2020['apr_rate'])
     
     myData = myData.loc[myData['apr_rate'] <= 100]
+    
+    #plot the respective graph
     
     myData.plot.barh(figsize = (10,50), edgecolor = 'black')
 
@@ -456,13 +464,16 @@ Before starting we recommend downloading a python IDE or the anaconda package (h
 3. Change directories to where `euro_currency_converter_V1_01` is saved.
 
 3. Type: the following commands to select the folder where the files are located:
+
     import os
+    
     os.chdir("C:/Users/Wilson/Desktop/hw5") -> this is the address for the folder, if you want to know the address right click on the    folder and select properties. The folder address will be essential as it detects the route to import the file
+    
     os.getcwd()
 
 4. Type: import euro_currency_converter_V1_01 as var
 
-5. Type: var.desiredDate(dates) -> the dates value is represented by the string of the date (i the form '')
+5. Type: var.desiredDate(dates) -> the dates value is represented by the string of the date (in the form ''). i.e : '2020-01-10'
 
 ## Update log
 V1 uploaded on 04/09/2020
