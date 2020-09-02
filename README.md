@@ -1,4 +1,4 @@
-# Currency Convertor Online Data for Euro (€)
+# Currency Convertor to Euro (€)
 
 **Authors:  
 Wilson Jo Siu,
